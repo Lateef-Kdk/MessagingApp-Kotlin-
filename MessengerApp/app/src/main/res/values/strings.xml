@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">MessengerApp</string>
+    <string name="userame">Userame</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="register">Register</string>
+    <string name="already_have_an_account">Already Have An Account?</string>
+    <string name="select_photo">Select Photo</string>
+    <string name="let_s_chat_d">Let\'s Chat!=D</string>
+</resources>

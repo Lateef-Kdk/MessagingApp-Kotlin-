@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.messengerapp">
+    <!-- Adding Read External Storage Permission -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <uses-feature
+        android:name="android.hardware.camera2"
+        android:required="true" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name="Messages.ChatLogActivity">
+           <!-- back buton top left-->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="Messages.LatestMessageActivity" />
+        </activity>
+        <activity android:name="Messages.LatestMessageActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="RegisterLogin.RegisterActivity"/>
+        <activity android:name="RegisterLogin.LoginActivity" />
+        <activity android:name=".PhotoActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="RegisterLogin.RegisterActivity" />
+        </activity>
+        <activity android:name="Messages.NewMessageActivity">
+            <!--the 2 lines below give us a back button in the top left corner -->
+            <!--of this activity. In this one we are going from NewMessages BACK to LatestMessages -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="Messages.LatestMessageActivity" />
+        </activity>
+    </application>
+
+</manifest>
