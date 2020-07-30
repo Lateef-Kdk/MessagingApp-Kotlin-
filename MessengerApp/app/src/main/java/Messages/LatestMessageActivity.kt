@@ -32,14 +32,16 @@ class LatestMessageActivity : AppCompatActivity() {
     val latestMessageMap = HashMap<String,ChatMessageClass>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        Log.d(TAG,"\t\tWelcome to Latest Messages Act ")
+        Log.d(TAG,"\t\tWelcome to Latest Messages Act")
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_latest_message)
 
         LatestMessages_RecyclerView_ID.adapter = myAdapter
         LatestMessages_RecyclerView_ID.addItemDecoration(DividerItemDecoration(this,DividerItemDecoration.VERTICAL))
 
-        supportActionBar?.title = "Messages"
+
+
+        supportActionBar?.title = " ${currentUser?.userName}'s Messages}"
 
         //Make it so that when you click on someones messages in LatestMessages, you go to
         //the ChatLog
@@ -66,7 +68,7 @@ class LatestMessageActivity : AppCompatActivity() {
         //we are going to need the current users information in
         //another act
         fetchCurrentUser()
-
+        
         verifyUserIsLoggedIn()
     }
 
