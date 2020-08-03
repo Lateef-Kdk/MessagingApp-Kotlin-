@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import com.example.messengerapp.R
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -49,7 +50,7 @@ class NewMessageActivity : AppCompatActivity() {
 
                     val userClassObj = it.getValue(UserClass::class.java) //UserClass was created in the Register Act
 
-                    if(userClassObj != null){
+                    if(userClassObj != null && userClassObj.uid != FirebaseAuth.getInstance().uid){
                         secondAdapter.add(UserItemClass(userClassObj))
                         //add the user into to the adapter.
                         //the adapter it contained inside the recycle view
