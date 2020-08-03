@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#951CB30B"
+    android:background="#C31F4EAC"
     tools:context="RegisterLogin.LoginActivity">
 
 
@@ -15,7 +15,7 @@
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="200dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/rounded_edittext_register"
         android:ems="10"
