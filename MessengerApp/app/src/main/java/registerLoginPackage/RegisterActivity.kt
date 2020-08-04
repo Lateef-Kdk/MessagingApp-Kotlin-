@@ -57,6 +57,7 @@ class RegisterActivity : AppCompatActivity() {
             val myLoginIntent = Intent(this, LoginActivity::class.java)
             clearPreviousActs(myLoginIntent)
             startActivity(myLoginIntent)
+            overridePendingTransition(R.anim.static_animation,R.anim.static_animation)
         }
 
         ProfileCircle_ImageView_ID.setOnClickListener {

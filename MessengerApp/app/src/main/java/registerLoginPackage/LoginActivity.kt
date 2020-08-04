@@ -37,6 +37,8 @@ class LoginActivity: AppCompatActivity(){
             val myRegistrationIntent = Intent(this, RegisterActivity::class.java)
             clearPreviousActs(myRegistrationIntent)
             startActivity(myRegistrationIntent)
+            //overridePendingTransition(R.anim.slide_to_right,R.anim.slide_to_right)
+
             //finish()
         }
     }

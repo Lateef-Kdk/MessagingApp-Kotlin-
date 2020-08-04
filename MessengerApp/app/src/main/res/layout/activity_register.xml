@@ -75,7 +75,9 @@
                 android:ems="10"
                 android:hint="@string/userame"
                 android:importantForAutofill="no"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"/>
 
             <EditText
                 android:id="@+id/Email_EditText_ID"
@@ -86,7 +88,9 @@
                 android:ems="10"
                 android:hint="@string/email"
                 android:importantForAutofill="no"
-                android:inputType="textEmailAddress" />
+                android:inputType="textEmailAddress"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"/>
 
             <EditText
                 android:id="@+id/Password_EditText_ID"
@@ -97,7 +101,9 @@
                 android:ems="10"
                 android:hint="@string/password"
                 android:importantForAutofill="no"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"/>
 
             <Button
                 android:id="@+id/Register_Button_ID"
