@@ -7,4 +7,10 @@
     <string name="already_have_an_account">Already Have An Account?</string>
     <string name="select_photo">Select Photo</string>
     <string name="let_s_chat_d">Let\'s Chat!=D</string>
+    <string name="title_activity_splash">SplashActivity</string>
+    <!--
+    This string is used for square devices and overridden by hello_world in
+    values-round/strings.xml for round devices.
+    -->
+    <string name="hello_world">Hello Square World!</string>
 </resources>

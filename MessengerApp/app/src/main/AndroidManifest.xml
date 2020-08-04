@@ -16,19 +16,33 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity
+            android:name=".SplashActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name="Messages.ChatLogActivity">
-           <!-- back buton top left-->
+
+            <!-- back buton top left -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="Messages.LatestMessageActivity" />
         </activity>
         <activity android:name="Messages.LatestMessageActivity">
-            <intent-filter>
+
+            <!--
+                <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            -->
         </activity>
-        <activity android:name="RegisterLogin.RegisterActivity"/>
+        <activity android:name="RegisterLogin.RegisterActivity" />
         <activity android:name="RegisterLogin.LoginActivity" />
         <activity android:name=".PhotoActivity">
             <meta-data
@@ -36,8 +50,9 @@
                 android:value="RegisterLogin.RegisterActivity" />
         </activity>
         <activity android:name="Messages.NewMessageActivity">
-            <!--the 2 lines below give us a back button in the top left corner -->
-            <!--of this activity. In this one we are going from NewMessages BACK to LatestMessages -->
+
+            <!-- the 2 lines below give us a back button in the top left corner -->
+            <!-- of this activity. In this one we are going from NewMessages BACK to LatestMessages -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="Messages.LatestMessageActivity" />
