@@ -18,6 +18,7 @@ import com.google.firebase.database.*
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 import kotlinx.android.synthetic.main.activity_latest_message.*
+import registerLoginPackage.LoginActivity
 
 class LatestMessageActivity : AppCompatActivity() {
 
@@ -38,7 +39,7 @@ class LatestMessageActivity : AppCompatActivity() {
 
 
 
-        supportActionBar?.title = "messagesPackage"
+        supportActionBar?.title = "Messages"
 
         //Make it so that when you click on someones messages in LatestMessages, you go to
         //the ChatLog
@@ -155,14 +156,18 @@ class LatestMessageActivity : AppCompatActivity() {
                 val newMessagesIntent = Intent(this,
                     NewMessageActivity::class.java)
                 startActivity(newMessagesIntent)
+                overridePendingTransition(R.anim.enter_from_right,R.anim.exit_to_left)
+                //new page entrance     ,Old page exit
             }
 
             R.id.Menu_SignOut_ID ->{
                 FirebaseAuth.getInstance().signOut()
-                val backToRegisterIntent = Intent(this,
-                    RegisterActivity::class.java)
-                clearPreviousActs(backToRegisterIntent)
-                startActivity(backToRegisterIntent)
+                val backToLoginIntent = Intent(this,
+                    LoginActivity::class.java)
+                clearPreviousActs(backToLoginIntent)
+                startActivity(backToLoginIntent)
+                overridePendingTransition(R.anim.grow,R.anim.shrink)
+                                            //new page entrance     ,Old page exit
             }
         }
                 //itemId represends the ID of the menu items in the nav_menu.xml
@@ -175,7 +180,7 @@ class LatestMessageActivity : AppCompatActivity() {
         menuInflater.inflate(R.menu.nav_menu,menu)
         return super.onCreateOptionsMenu(menu)
     }
-//TODO Include a profile pic or something somewhere!
+//TODO Include a profile pic of the current user somewhere!
 // TODO I never know whose profile I'm on
     //TODO MAKE IT SO 2 PEopel cam't have the same username
     //end of class

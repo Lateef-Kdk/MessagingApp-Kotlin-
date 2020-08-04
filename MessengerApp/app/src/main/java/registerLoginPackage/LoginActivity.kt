@@ -37,9 +37,8 @@ class LoginActivity: AppCompatActivity(){
             val myRegistrationIntent = Intent(this, RegisterActivity::class.java)
             clearPreviousActs(myRegistrationIntent)
             startActivity(myRegistrationIntent)
-            //overridePendingTransition(R.anim.slide_to_right,R.anim.slide_to_right)
-
-            //finish()
+            overridePendingTransition(R.anim.enter_from_left,R.anim.exit_to_right)
+                                    //new page entrance     ,Old page exit
         }
     }
 
@@ -66,6 +65,9 @@ class LoginActivity: AppCompatActivity(){
                     val latestMessagesIntent = Intent(this,LatestMessageActivity::class.java)
                     clearPreviousActs(latestMessagesIntent)
                     startActivity(latestMessagesIntent)
+                    overridePendingTransition(R.anim.grow,R.anim.shrink)
+                                            //new page entrance     ,Old page exit
+
                 }
         }.addOnFailureListener {
                 Log.w(TAG, "Sign in Failed: ${it.message}")

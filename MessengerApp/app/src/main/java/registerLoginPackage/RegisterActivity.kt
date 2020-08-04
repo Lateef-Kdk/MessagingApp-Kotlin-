@@ -57,7 +57,8 @@ class RegisterActivity : AppCompatActivity() {
             val myLoginIntent = Intent(this, LoginActivity::class.java)
             clearPreviousActs(myLoginIntent)
             startActivity(myLoginIntent)
-            overridePendingTransition(R.anim.static_animation,R.anim.static_animation)
+            overridePendingTransition(R.anim.enter_from_right,R.anim.exit_to_left)
+                                    //new page entrance     ,Old page exit
         }
 
         ProfileCircle_ImageView_ID.setOnClickListener {
