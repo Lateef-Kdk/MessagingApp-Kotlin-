@@ -1,12 +1,13 @@
 package com.example.messengerapp
 
-import Messages.LatestMessageActivity
-import RegisterLogin.RegisterActivity
+import messagesPackage.LatestMessageActivity
+import registerLoginPackage.RegisterActivity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
+import android.view.WindowManager
 import com.google.firebase.auth.FirebaseAuth
 
 class SplashActivity : AppCompatActivity() {
@@ -16,6 +17,10 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
+        supportActionBar?.hide()    //hide the fat bar at the top of the app/
+        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN) // Hide the status bar
+
+        //I think this just makes it wait.
         handler = Handler()
         handler.postDelayed({
             verifyUserIsLoggedIn()

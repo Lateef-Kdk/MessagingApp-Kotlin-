@@ -1,9 +1,10 @@
-package RegisterLogin
+package registerLoginPackage
 
-import Messages.LatestMessageActivity
+import messagesPackage.LatestMessageActivity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.WindowManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.messengerapp.R
@@ -19,8 +20,12 @@ class LoginActivity: AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        auth = FirebaseAuth.getInstance()   //this was originally auth=Firebase.auth
-                                            //but that gave us errors
+        supportActionBar?.hide()    //hide the fat bar at the top of the app/
+        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN) // Hide the status bar
+
+
+
+        auth = FirebaseAuth.getInstance()   //this was originally auth=Firebase.auth, but that gave us errors
 
         Login_Button_ID.setOnClickListener {
             Log.d(TAG,"Someone Clicked the Login Button")
@@ -29,8 +34,8 @@ class LoginActivity: AppCompatActivity(){
 
         BackToRegistration_TextView_ID.setOnClickListener {
             Log.d(TAG,"Go back to the Registration Screen")
-            val myRegistrationIntent = Intent(this,
-                RegisterActivity::class.java)
+            val myRegistrationIntent = Intent(this, RegisterActivity::class.java)
+            clearPreviousActs(myRegistrationIntent)
             startActivity(myRegistrationIntent)
             //finish()
         }
@@ -65,24 +70,11 @@ class LoginActivity: AppCompatActivity(){
                 //it.message is a detailed message on why the sign in failed.
                 Toast.makeText(baseContext, "Authentication failed. Try Again Good Buddy", Toast.LENGTH_SHORT).show()
         }
-
-
-
     }
-
-    override fun onStart() {
-        super.onStart()
-        // Check if user is signed in (non-null) and update UI accordingly.
-        val currentUser = auth.currentUser
-        //updateUI(currentUser)
-    }
-
 
     private fun clearPreviousActs(intent: Intent){
         Log.d(TAG,"Previous Acts GONE!")
         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
     }
-    //TODO it says success and failure when you login, gotta fix that.
-
 }
 

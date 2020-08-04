@@ -1,9 +1,8 @@
-package RegisterLogin
+package registerLoginPackage
 
 
-import Messages.LatestMessageActivity
-import Models.UserClass
-import android.app.ActionBar
+import messagesPackage.LatestMessageActivity
+import modelsPackage.UserClass
 import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -12,7 +11,6 @@ import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.util.Patterns
-import android.view.View
 import android.view.WindowManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -56,8 +54,8 @@ class RegisterActivity : AppCompatActivity() {
 
         AlreadyHaveAccount_TextView_ID.setOnClickListener {
             Log.d("MainActTag", "Go to Login Activity")
-            val myLoginIntent = Intent(this,
-                LoginActivity::class.java)
+            val myLoginIntent = Intent(this, LoginActivity::class.java)
+            clearPreviousActs(myLoginIntent)
             startActivity(myLoginIntent)
         }
 
@@ -254,6 +252,7 @@ class RegisterActivity : AppCompatActivity() {
             }
         }
     }
+
 
 //END OF CLASS!
 }

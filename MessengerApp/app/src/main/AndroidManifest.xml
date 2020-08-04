@@ -25,37 +25,28 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="Messages.ChatLogActivity">
-
+        <activity android:name="messagesPackage.ChatLogActivity">
             <!-- back buton top left -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="Messages.LatestMessageActivity" />
+                android:value="messagesPackage.LatestMessageActivity" />
         </activity>
-        <activity android:name="Messages.LatestMessageActivity">
-
-            <!--
-                <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            -->
+        <activity android:name="messagesPackage.LatestMessageActivity"/>
+        <activity android:name="registerLoginPackage.RegisterActivity" />
+        <activity android:name="registerLoginPackage.LoginActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         </activity>
-        <activity android:name="RegisterLogin.RegisterActivity" />
-        <activity android:name="RegisterLogin.LoginActivity" />
         <activity android:name=".PhotoActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="RegisterLogin.RegisterActivity" />
+                android:value="registerLoginPackage.RegisterActivity" />
         </activity>
-        <activity android:name="Messages.NewMessageActivity">
-
+        <activity android:name="messagesPackage.NewMessageActivity">
             <!-- the 2 lines below give us a back button in the top left corner -->
             <!-- of this activity. In this one we are going from NewMessages BACK to LatestMessages -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="Messages.LatestMessageActivity" />
+                android:value="messagesPackage.LatestMessageActivity" />
         </activity>
     </application>
 

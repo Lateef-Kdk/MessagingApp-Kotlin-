@@ -1,8 +1,8 @@
-package Messages
+package messagesPackage
 
-import Messages.NewMessageActivity.Companion.USER_KEY
-import Models.ChatMessageClass
-import Models.UserClass
+import messagesPackage.NewMessageActivity.Companion.USER_KEY
+import modelsPackage.ChatMessageClass
+import modelsPackage.UserClass
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -10,17 +10,14 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import com.example.messengerapp.R
-import RegisterLogin.RegisterActivity
+import registerLoginPackage.RegisterActivity
 import Views.LatestMessageRow
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
-import com.squareup.picasso.Picasso
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
-import com.xwray.groupie.Item
 import kotlinx.android.synthetic.main.activity_latest_message.*
-import kotlinx.android.synthetic.main.latest_message_row.view.*
 
 class LatestMessageActivity : AppCompatActivity() {
 
@@ -41,7 +38,7 @@ class LatestMessageActivity : AppCompatActivity() {
 
 
 
-        supportActionBar?.title = " ${currentUser?.userName}'s Messages}"
+        supportActionBar?.title = "messagesPackage"
 
         //Make it so that when you click on someones messages in LatestMessages, you go to
         //the ChatLog

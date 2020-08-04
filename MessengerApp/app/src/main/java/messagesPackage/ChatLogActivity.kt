@@ -1,7 +1,7 @@
-package Messages
+package messagesPackage
 
-import Models.ChatMessageClass
-import Models.UserClass
+import modelsPackage.ChatMessageClass
+import modelsPackage.UserClass
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log

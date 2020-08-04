@@ -1,7 +1,7 @@
 package Views
 
-import Models.ChatMessageClass
-import Models.UserClass
+import modelsPackage.ChatMessageClass
+import modelsPackage.UserClass
 import com.example.messengerapp.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
