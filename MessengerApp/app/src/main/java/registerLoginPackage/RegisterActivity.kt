@@ -1,6 +1,5 @@
 package registerLoginPackage
 
-
 import messagesPackage.LatestMessageActivity
 import modelsPackage.UserClass
 import android.app.Activity
@@ -22,7 +21,6 @@ import kotlinx.android.synthetic.main.activity_register.*
 import java.io.IOException
 import java.util.*
 
-
 class RegisterActivity : AppCompatActivity() {
 
     private val TAG = "RegisterActTag"
@@ -41,11 +39,13 @@ class RegisterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
         Log.d(TAG,"Welcome to Registration Act")
+
         supportActionBar?.hide()    //hide the fat bar at the top of the app/
         window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN) // Hide the status bar
 
 
         auth = FirebaseAuth.getInstance()
+
         Register_Button_ID.setOnClickListener {
             //TODO After they push the register button, make sure they can't
             //push it again or make a loading screen pop up.

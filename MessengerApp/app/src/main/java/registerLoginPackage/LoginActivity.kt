@@ -19,13 +19,14 @@ class LoginActivity: AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+        Log.d(TAG,"Welcome to Login Act")
 
         supportActionBar?.hide()    //hide the fat bar at the top of the app/
         window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN) // Hide the status bar
 
 
 
-        auth = FirebaseAuth.getInstance()   //this was originally auth=Firebase.auth, but that gave us errors
+        auth = FirebaseAuth.getInstance()
 
         Login_Button_ID.setOnClickListener {
             Log.d(TAG,"Someone Clicked the Login Button")
@@ -60,7 +61,7 @@ class LoginActivity: AppCompatActivity(){
                 if (it.isSuccessful) {
                     //"it" represents the task result. So if "it" succeeds, then the task succeeded and if it fails... the task failed.
                     Log.d(TAG, "We have signed in successfully!")
-                    val user = auth.currentUser
+                    //val user = auth.currentUser
                     Toast.makeText(this,"Login Successful!",Toast.LENGTH_SHORT).show()
                     val latestMessagesIntent = Intent(this,LatestMessageActivity::class.java)
                     clearPreviousActs(latestMessagesIntent)
