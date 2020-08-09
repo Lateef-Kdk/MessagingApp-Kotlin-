@@ -3,45 +3,44 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="120dp">
+    android:layout_height="100dp">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/LatestMessageRow_Picture_ImageView_ID"
         android:layout_width="64dp"
         android:layout_height="64dp"
         android:layout_marginStart="24dp"
+        app:civ_border_color="@android:color/black"
+        app:civ_border_width="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/btn_dialog"
-        app:civ_border_width="2dp"
-        app:civ_border_color="@android:color/black"/>
+        app:srcCompat="@android:drawable/btn_dialog" />
 
     <TextView
         android:id="@+id/LatestMessageRow_Username_TextView_ID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="16dp"
         android:textColor="#000000"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/LatestMessageRow_LatestMessage_TextView_ID"
         app:layout_constraintStart_toEndOf="@+id/LatestMessageRow_Picture_ImageView_ID"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed"
-        tools:text="Username"/>
+        tools:text="Username" />
 
     <TextView
         android:id="@+id/LatestMessageRow_LatestMessage_TextView_ID"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="286dp"
+        android:layout_height="62dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="36dp"
         android:layout_marginEnd="16dp"
-        android:text="Latest Message, this text should wrap there should be no bleeding so lets test it now please and thank you"
+        android:text="Latest Message, this text should wrap there should be love it now when you make it this long because it's insana with a shoe keeper in the sun of the longest mark on the pln in the hose of cards francis underwood is a bad man that killed zoe"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/LatestMessageRow_Picture_ImageView_ID"
-        app:layout_constraintTop_toBottomOf="@+id/LatestMessageRow_Username_TextView_ID" />
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

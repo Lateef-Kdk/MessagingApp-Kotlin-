@@ -33,17 +33,25 @@ class LatestMessageActivity : AppCompatActivity() {
         Log.d(TAG,"\t\tWelcome to Latest Messages Act")
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_latest_message)
+        supportActionBar?.title = "Messages"
+        verifyUserIsLoggedIn()
+
+        floatingActionButton_ID.setOnClickListener {
+            val newMessagesIntent = Intent(this,
+                NewMessageActivity::class.java)
+            startActivity(newMessagesIntent)
+            overridePendingTransition(R.anim.enter_from_right,R.anim.exit_to_left)
+            //new page entrance     ,Old page exit
+        }
+
 
         LatestMessages_RecyclerView_ID.adapter = myAdapter
+        //adds a divider between all the rows
         LatestMessages_RecyclerView_ID.addItemDecoration(DividerItemDecoration(this,DividerItemDecoration.VERTICAL))
-
-
-
-        supportActionBar?.title = "Messages"
 
         //Make it so that when you click on someones messages in LatestMessages, you go to
         //the ChatLog
-        //The adapter is the row, I guess.
+        // The adapter is the row, I guess.
         myAdapter.setOnItemClickListener { item, view ->
             Log.d(TAG,"123")
             val myChatlogActIntent = Intent(this,ChatLogActivity::class.java)
@@ -61,13 +69,15 @@ class LatestMessageActivity : AppCompatActivity() {
             startActivity(myChatlogActIntent)
         }
 
+        
+
         listenForLatestMessages()
 
         //we are going to need the current users information in
         //another act
         fetchCurrentUser()
         
-        verifyUserIsLoggedIn()
+
     }
 
     private fun refreshRecyclerViewMessages(){
@@ -123,6 +133,7 @@ class LatestMessageActivity : AppCompatActivity() {
             //even if nothing changes.... WEIRD.
             override fun onDataChange(snapshot: DataSnapshot) {
                 currentUser = snapshot.getValue(UserClass::class.java)
+                userName_TextView_ID.text = "Hello ${currentUser?.userName}"
                 Log.d(TAG,"Current User ${currentUser?.userName}")
                 Log.d(TAG,"Current User ${currentUser?.profileImageUrl}")
                 Log.d(TAG,"Current User ${currentUser?.uid}")
@@ -152,13 +163,13 @@ class LatestMessageActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){//item.id represents the ID of the menu items
             //so when the item.itemIf is  R.id.Menu_NewMessage_ID start the NewMessagesAct
-            R.id.Menu_NewMessage_ID ->{
-                val newMessagesIntent = Intent(this,
-                    NewMessageActivity::class.java)
-                startActivity(newMessagesIntent)
-                overridePendingTransition(R.anim.enter_from_right,R.anim.exit_to_left)
-                //new page entrance     ,Old page exit
-            }
+//            R.id.Menu_NewMessage_ID ->{
+//                val newMessagesIntent = Intent(this,
+//                    NewMessageActivity::class.java)
+//                startActivity(newMessagesIntent)
+//                overridePendingTransition(R.anim.enter_from_right,R.anim.exit_to_left)
+//                //new page entrance     ,Old page exit
+//            }
 
             R.id.Menu_SignOut_ID ->{
                 FirebaseAuth.getInstance().signOut()
@@ -180,6 +191,7 @@ class LatestMessageActivity : AppCompatActivity() {
         menuInflater.inflate(R.menu.nav_menu,menu)
         return super.onCreateOptionsMenu(menu)
     }
+
 //TODO Include a profile pic of the current user somewhere!
 // TODO I never know whose profile I'm on
     //TODO MAKE IT SO 2 PEopel cam't have the same username

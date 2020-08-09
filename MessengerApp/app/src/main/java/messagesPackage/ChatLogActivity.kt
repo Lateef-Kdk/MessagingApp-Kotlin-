@@ -1,10 +1,12 @@
 package messagesPackage
 
+import android.content.Intent
 import modelsPackage.ChatMessageClass
 import modelsPackage.UserClass
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import com.example.messengerapp.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.ChildEventListener
@@ -39,7 +41,6 @@ class ChatLogActivity : AppCompatActivity() {
         toUser = intent.getParcelableExtra<UserClass>(NewMessageActivity.USER_KEY)      //get the receiving user object from the intent.
         supportActionBar?.title = toUser?.userName
 
- //       setUpDummyData()
 
         listenForMessages()
 
@@ -168,10 +169,15 @@ class ChatReceivedItemClass(val receivedText: String, val sendingUser: UserClass
         //load out user image into the star
         val receivingUserUri = sendingUser.profileImageUrl
         val targetImageView = viewHolder.itemView.FromRow_ImageView_ID
-        Picasso.get().load(receivingUserUri)
+/*        Picasso.get().load(receivingUserUri)
             .placeholder(R.drawable.ic_launcher_foreground) //When we are loading in the image use R.drawable.ic_launcher_foreground as a place holder
             .error(R.drawable.ic_launcher_foreground)   //if something goes wrong replace the image with R.drawable.ic_launcher_foreground
             .rotate(90F) //we do rotate cuz the images were sideways since picasso rotates BIG images
+            .into(targetImageView);*/
+
+        Picasso.get().load(receivingUserUri)
+            .placeholder(R.drawable.ic_launcher_foreground) //When we are loading in the image use R.drawable.ic_launcher_foreground as a place holder
+            .error(R.drawable.ic_launcher_foreground)   //if something goes wrong replace the image with R.drawable.ic_launcher_foreground
             .into(targetImageView);
         //TODO This makes all the pictures rotate 90 degrees Clockwise. I need to find a way to make it so that it only rotates images that are really big.
     }
@@ -193,10 +199,10 @@ class ChatSentItemClass(val sentText: String, val currentUser: UserClass): Item<
         Picasso.get().load(receivingUserUri)
             .placeholder(R.drawable.ic_launcher_foreground) //When we are loading in the image use R.drawable.ic_launcher_foreground as a place holder
             .error(R.drawable.ic_launcher_foreground)   //if something goes wrong replace the image with R.drawable.ic_launcher_foreground
-            .rotate(90F) //we do rotate cuz the images were sideways since picasso rotates BIG images
             .into(targetImageView)
     }
 }
 
+//TODO and copy and paste options when you hold on a message
 
 //TODO make it scroll down whenever you get a new message.

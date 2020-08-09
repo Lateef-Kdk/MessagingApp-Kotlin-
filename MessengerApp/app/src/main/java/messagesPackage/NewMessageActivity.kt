@@ -95,7 +95,6 @@ class UserItemClass(val userClassObj2: UserClass): Item<GroupieViewHolder>(){
         Picasso.get().load(userClassObj2.profileImageUrl)
             .placeholder(R.drawable.ic_launcher_foreground) //When we are loading in the image use R.drawable.ic_launcher_foreground as a place holder
             .error(R.drawable.ic_launcher_foreground)   //if something goes wrong replace the image with R.drawable.ic_launcher_foreground
-            .rotate(90F) //we do rotate cuz the images were sideways cuz picasso rotates BIG images
             .into(imageViewInUserRowLayout);
         //TODO This makes all the pictures rotate 90 degrees Clockwise. I need to find a way to make it so that it only rotates images that are really big.
 

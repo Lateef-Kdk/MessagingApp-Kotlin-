@@ -17,11 +17,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".SplashActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -33,21 +31,23 @@
         </activity>
         <activity android:name="messagesPackage.LatestMessageActivity"/>
         <activity android:name="registerLoginPackage.RegisterActivity" />
-        <activity android:name="registerLoginPackage.LoginActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        </activity>
+        <activity android:name="registerLoginPackage.LoginActivity"/>
         <activity android:name=".PhotoActivity">
+            <!--                back button at the top left corner-->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="registerLoginPackage.RegisterActivity" />
+
         </activity>
+
         <activity android:name="messagesPackage.NewMessageActivity">
+
             <!-- the 2 lines below give us a back button in the top left corner -->
             <!-- of this activity. In this one we are going from NewMessages BACK to LatestMessages -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="messagesPackage.LatestMessageActivity" />
+
         </activity>
     </application>
-
 </manifest>

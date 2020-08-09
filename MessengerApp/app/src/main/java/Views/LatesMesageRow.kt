@@ -52,7 +52,6 @@ class LatestMessageRow(val chatMessageObj: ChatMessageClass): Item<GroupieViewHo
                 Picasso.get().load(chatPartnerUser?.profileImageUrl)
                     .placeholder(R.drawable.ic_launcher_foreground) //When we are loading in the image use R.drawable.ic_launcher_foreground as a place holder
                     .error(R.drawable.ic_launcher_foreground)   //if something goes wrong replace the image with R.drawable.ic_launcher_foreground
-                    .rotate(90F) //we do rotate cuz the images were sideways cuz picasso rotates BIG images
                     .into(targetImageView);
             }
 
