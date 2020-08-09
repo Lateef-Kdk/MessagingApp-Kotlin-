@@ -69,14 +69,11 @@ class LatestMessageActivity : AppCompatActivity() {
             startActivity(myChatlogActIntent)
         }
 
-        
-
         listenForLatestMessages()
 
         //we are going to need the current users information in
         //another act
         fetchCurrentUser()
-        
 
     }
 
