@@ -5,3 +5,7 @@ This Repo is for my mesasing app. I used Firebase for authentication, Messaging,
 
 # Here are quick snapshots of the app.
 <img src="ImagesAndGifs/Register%20Page.png" width="400">
+
+
+
+<img src="ImagesAndGifs/Open%20App.gif" width="400">
